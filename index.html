@@ -11,6 +11,16 @@
 
     <style>
       /* CSS:BASE-START */
+      :root {
+        --color-bg: #0d1117;
+        --color-text: #e6e6e6;
+        --color-link: #58a6ff;
+        --color-header-bg: #161b22;
+        --color-footer-text: #9ca3af;
+        --color-btn-bg: #238636;
+        --color-btn-hover: #2ea043;
+      }
+
       *,
       *::before,
       *::after {
@@ -20,8 +30,8 @@
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, "Helvetica Neue", Arial, sans-serif;
-        background-color: #0d1117;
-        color: #e6e6e6;
+        background-color: var(--color-bg);
+        color: var(--color-text);
         line-height: 1.6;
       }
       .page {
@@ -41,7 +51,7 @@
         padding: 0 1rem;
       }
       a {
-        color: #58a6ff;
+        color: var(--color-link);
         text-decoration: none;
       }
       a:hover {
@@ -50,7 +60,7 @@
       header.site-header {
         position: sticky;
         top: 0;
-        background-color: #161b22;
+        background-color: var(--color-header-bg);
         padding: 0.75rem 1rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         z-index: 10;
@@ -78,7 +88,7 @@
         text-align: center;
         padding: 2rem;
         font-size: 0.9rem;
-        color: #9ca3af;
+        color: var(--color-footer-text);
       }
       /* CSS:BASE-END */
 
@@ -91,7 +101,7 @@
       .hero-title {
         font-size: 2rem;
         margin-bottom: 1rem;
-        color: #58a6ff;
+        color: var(--color-link);
       }
       .hero-img {
         border-radius: 8px;
@@ -100,7 +110,39 @@
       /* CSS:HERO-END */
 
       /* CSS:ABOUT-START */
-      .section-about {
+      .section-about .about-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .section-about .about-text {
+        flex: 1;
+      }
+      .section-about .about-list {
+        list-style: disc;
+        padding-left: 1.25rem;
+        margin: 1rem 0;
+      }
+      .section-about .about-photo {
+        border-radius: 8px;
+        flex: 1;
+        margin-top: 1rem;
+      }
+      .section-about .btn-row {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1rem;
+      }
+      .section-about .btn {
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        background: var(--color-btn-bg);
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .section-about .btn:hover {
+        background: var(--color-btn-hover);
       }
       /* CSS:ABOUT-END */
 
@@ -135,14 +177,9 @@
         .section-hero .hero-title {
           font-size: 2.5rem;
         }
-        .section-about .container,
-        .section-projects .container {
-          display: flex;
-          gap: 2rem;
-          align-items: center;
-        }
-        .section-projects .container {
+        .section-about .about-wrap {
           flex-direction: row;
+          align-items: center;
         }
       }
       /* CSS:RWD-END */
@@ -172,14 +209,13 @@
         >
           <div class="container">
             <h1 id="hero-heading" class="hero-title">
-              Hero 區主視覺（占位內容）
+              I'm Judy
+              <br />
+              a frontend engineer and creative explorer
             </h1>
             <p>
-              這裡是個人網站的主視覺區。未來會放上一句話自我介紹、前端工程師職稱，以及行動按鈕（例如：瀏覽作品集）。
-            </p>
-            <p>
-              之後會用 Section SDD 的 Prompt 產生正式文案與版面，再把整個
-              section 貼回來取代這一區。
+              我是
+              Judy，前端工程師兼創意探索者，把創意與工具結合，打造更流暢、有趣的網頁體驗。
             </p>
             <img
               class="hero-img"
@@ -198,12 +234,40 @@
           aria-labelledby="about-heading"
         >
           <div class="container">
-            <h2 id="about-heading" class="section-title">關於我（占位內容）</h2>
-            <p>
-              這裡目前是 About 區的占位內容。之後會用 Section SDD 產生新的
-              section，請把新的 section
-              程式碼整段貼在這兩個註解中間，完全取代現在這一區。
-            </p>
+            <div class="about-content">
+              <h2 id="about-heading" class="section-title">關於我</h2>
+              <p>
+                我是一名前端工程師，專注於打造乾淨、流暢、具一致性的網頁體驗，熟悉
+                React 與現代前端開發流程。
+              </p>
+              <p>
+                我對新工具與技術充滿好奇，尤其喜歡把創意轉化成能落地的功能。近年來，我會主動探索
+                AI 協作開發（像是 vibe coding、Prompt-based
+                workflow）、自動化工具與工作流程最佳化，讓工具真正成為延伸我能力的夥伴。
+              </p>
+              <p>
+                在協作中，我重視透明與清楚的溝通，並習慣把複雜的事情拆成容易理解的方向，讓開發流程更順暢也更有效率。
+              </p>
+
+              <ul class="about-list">
+                <li>前端開發、UI Layout 與互動設計</li>
+                <li>探索 AI 工具並整合到開發流程中</li>
+                <li>釐清需求、協作規格與技術落地評估</li>
+              </ul>
+
+              <div class="about-buttons about-btn">
+                <a class="about-btn" href="#projects">查看作品集</a>
+                <a class="about-btn" href="#contact">聯絡我</a>
+              </div>
+            </div>
+
+            <div class="about-photo">
+              <img
+                src="https://images.unsplash.com/photo-1543616991-75a2c125ff5b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="正在撰寫程式的工程師示意圖"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
         <!-- SECTION:ABOUT-END -->
@@ -215,12 +279,34 @@
           aria-labelledby="skills-heading"
         >
           <div class="container">
-            <h2 id="skills-heading" class="section-title">技能（占位內容）</h2>
+            <h2 id="skills-heading" class="section-title">技能</h2>
             <p>
-              這裡是 Skills 區的占位內容。未來會放上技術列表或能力圖示。之後會用
-              Section SDD 產生新的 section，請把新的 section
-              程式碼整段貼進這兩個註解中間取代本區。
+              我專注於現代前端開發，擅長使用 React
+              及其相關生態系來打造穩定、流暢且具擴充性的使用者介面。我也熟悉前端工程化流程，並持續探索更有效率的開發方式，例如
+              AI 協助開發、程式碼最佳化與建構流程自動化。
             </p>
+
+            <ul class="skills-list">
+              <li>
+                <strong>React 生態系：</strong>React、Hooks、Context、React
+                Router
+              </li>
+              <li>
+                <strong>前端工程化：</strong>Vite、Webpack、ES Modules、NPM
+                Scripts
+              </li>
+              <li>
+                <strong>樣式與 UI：</strong>CSS、SCSS、Tailwind CSS、RWD
+                響應式設計
+              </li>
+              <li>
+                <strong>API 與資料處理：</strong>REST API、Fetch、Async Flow
+              </li>
+              <li>
+                <strong>開發流程提升：</strong>AI
+                輔助開發、程式碼最佳化、自動化工具
+              </li>
+            </ul>
           </div>
         </section>
         <!-- SECTION:SKILLS-END -->
@@ -232,9 +318,7 @@
           aria-labelledby="projects-heading"
         >
           <div class="container">
-            <h2 id="projects-heading" class="section-title">
-              作品集（占位內容）
-            </h2>
+            <h2 id="projects-heading" class="section-title">作品集</h2>
             <p>
               這裡將展示日後加入的專案與作品。之後會用 Section SDD
               生成正式內容，請把新的 section
@@ -257,9 +341,7 @@
           aria-labelledby="contact-heading"
         >
           <div class="container">
-            <h2 id="contact-heading" class="section-title">
-              聯絡我（占位內容）
-            </h2>
+            <h2 id="contact-heading" class="section-title">聯絡我</h2>
             <p>
               這裡是 Contact 區的占位內容。未來會放上 Email、LinkedIn、GitHub
               等資訊。之後會用 Section SDD 產生新的 section，請把新的 section
